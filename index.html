@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form id="form-file" action="" enctype="multipart/form-data">
+    <input name="name" type="text">
+    <input name="file" type="file" multiple>
+    <input name="file2" type="file">
+    <button>Submit</button>
+  </form>
+
+  <img src="http://localhost:3000/public/books/book1.jpeg" alt="" srcset="">
+
+  <script>
+    const formFile = document.getElementById("form-file");
+    formFile.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      console.log(this.elements);
+
+      const data = new FormData();
+      data.append("name", this.elements.name.value);
+      data.append("file", this.elements.file.files[0]);
+    })
+  </script>
+</body>
+</html>
